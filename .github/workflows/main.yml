@@ -1,7 +1,7 @@
 name: Unzip and Push Files
 
 on:
-  workflow_dispatch:  # হাতে চালাতে পারো
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # এটা না দিলে push করতে পারবে না
+      contents: write  # প্রয়োজন GitHub Token দিয়ে push করার জন্য
 
     steps:
       - name: Checkout repository
@@ -19,12 +19,8 @@ jobs:
 
       - name: Unzip zenime-main.zip
         run: |
-          mkdir -p unzipped
-          unzip zenime-main.zip -d unzipped
-
-      - name: Copy unzipped content to root (optional)
-        run: |
-          cp -r unzipped/* .
+          unzip zenime-main.zip
+          cp -r zenime-main/* .
 
       - name: Configure Git
         run: |
@@ -34,5 +30,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Unzipped and pushed files" || echo "No changes to commit"
+          git commit -m "Unzipped zenime-main.zip and pushed contents" || echo "No changes to commit"
           git push
