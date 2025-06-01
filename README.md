@@ -73,12 +73,12 @@
 ### 2. Run the following code to clone the repository and install all required dependencies
 
 ```bash
-git clone https://github.com/itzzzme/zenime.git
-cd zenime
+git clone https://github.com/reyad27s/Xenime.git
+cd Xenime
 npm install # or yarn
 ```
 
-### 3. Refer the <a href="https://github.com/itzzzme/zenime/blob/main/.env.example">.env.example</a> to set your .env file up
+### 3. Refer the <a href="https://github.com/reyad27s/Xenime/blob/main/.env.example">.env.example</a> to set your .env file up
 
 ## Start the server
 
@@ -91,13 +91,13 @@ npm start # or npm run dev (to run develepment server)
 
 Host your own instance of <a href="https://zenime.site">Zenime</a>  on vercel
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/itzzzme/zenime)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/reyad27s/Xenime)
 
 ### Render
 
 Host your own instance of <a href="https://zenime.site">Zenime</a> on Render.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/itzzzme/zenime)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/reyad27s/Xenime)
 
 ### Pull Requests
 
