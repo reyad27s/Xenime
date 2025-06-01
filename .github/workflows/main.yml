@@ -1,0 +1,23 @@
+name: Unzip File
+
+on:
+  push:
+    branches:
+      - main  # or your target branch
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unzip zenime-main.zip
+        run: |
+          mkdir -p unzipped
+          unzip zenime-main.zip -d unzipped
+
+      - name: List extracted files (for verification)
+        run: ls -R unzipped
