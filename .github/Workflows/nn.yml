@@ -1,14 +1,17 @@
-name: Unzip File
+name: Unzip and Push Files
 
 on:
+  workflow_dispatch:  # হাতে চালাতে পারো
   push:
     branches:
-      - main  # or your target branch
-  workflow_dispatch:  # allows manual triggering
+      - main
 
 jobs:
-  unzip:
+  unzip-and-commit:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # এটা না দিলে push করতে পারবে না
 
     steps:
       - name: Checkout repository
@@ -19,5 +22,17 @@ jobs:
           mkdir -p unzipped
           unzip zenime-main.zip -d unzipped
 
-      - name: List extracted files (for verification)
-        run: ls -R unzipped
+      - name: Copy unzipped content to root (optional)
+        run: |
+          cp -r unzipped/* .
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Unzipped and pushed files" || echo "No changes to commit"
+          git push
